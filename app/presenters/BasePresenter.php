@@ -14,8 +14,7 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
 			"previewPath" => $this->link("preview"),
 		)));
 		
-		$control->addFiles(array(
-			
+		$control->addFiles(array(			
 			"texyla/js/texyla.js",
 			"texyla/js/selection.js",
 			"texyla/js/texy.js",
@@ -73,7 +72,7 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
 	}
 	
 	/**
-	* Handle sign out. Function is accesable in all web.
+	* Handle sign out. Function is accessable in all web.
 	*/
 	public function handleSignout()
  	{
