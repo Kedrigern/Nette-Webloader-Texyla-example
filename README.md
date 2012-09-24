@@ -6,13 +6,15 @@ Authors
 -------
 I just compiled Nette framework with libs - all merit have authors of:
 
-[Nette](http://www.nette.org "Nette framework") - [Nette Foundation](http://nettefoundation.com/ "Nette foundation") - https://github.com/nette/nette
+**[Nette](http://www.nette.org "Nette framework")** - [Nette Foundation](http://nettefoundation.com/ "Nette foundation") - https://github.com/nette/nette
 
-Texyla - Jan Marek - https://github.com/janmarek/Texyla
+**Texyla** - Jan Marek - https://github.com/janmarek/Texyla
 
-Webloader - Jan Marek - https://github.com/janmarek/WebLoader
+**Webloader** - Jan Marek - https://github.com/janmarek/WebLoader
 
-Twitter, from Bootstrap - [Twitter, inc](http://www.twitter.com) - https://github.com/twitter/bootstrap
+**Twitter, from Bootstrap** - [Twitter, inc](http://www.twitter.com) - https://github.com/twitter/bootstrap
+
+The first concept of this skeleton is from Jan Suchánek.
 
 Thanks!
 
