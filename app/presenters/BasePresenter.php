@@ -1,9 +1,6 @@
 <?php
-
-
 abstract class BasePresenter extends \Nette\Application\UI\Presenter
 {
-
 	/**
 	 * Texyla loader factory
 	 * @return TexylaLoader
@@ -27,7 +24,7 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
 			"texyla/js/view.js",
 			"texyla/js/window.js",
 
-				// languages
+			// languages
 			"texyla/languages/cs.js",
 
 			// plugins
@@ -45,21 +42,43 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
 
 		return $control;		
 	}
-	
+
+	/**
+	 * Css loader factory
+	 * @return CssLoader
+	 */
 	public function createComponentCss()
 	{
 		return $this->context->createBackendCss();
 	}
 
+	/**
+	 * Js loader factory
+	 * @return JsLoader
+	 */
 	public function createComponentJs()
 	{
 		return $this->context->createBackendJs();
 	}
+	
+	/**
+	* Preview action for texyla. This generate preview. 
+	*/
 	public function actionPreview()
 	{
 		$post = $this->context->getService("httpRequest")->getPost("texy");
 		$html = \Nette\Utils\Strings::trim($this->context->texy->process($post));
 		$response = new \Nette\Application\Responses\TextResponse($html);
 		$this->sendResponse($response);
-  }
+	}
+	
+	/**
+	* Handle sign out. Function is accesable in all web.
+	*/
+	public function handleSignout()
+ 	{
+		$this->getUser()->logout();
+		$this->flashMessage("Byl jste odhlášen.", "success");
+		$this->redirect("Homepage:");
+	}
 }
