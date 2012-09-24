@@ -1,6 +1,6 @@
 Nette, Webloader, Texyla example
 ================================
-This is Nette, Webloader, Texyla and Twitter, from Bootstrap minimal working example (skeleton of project).
+This is Nette, Webloader, Texyla and Twitter, from Bootstrap minimal working example (skeleton of project). 
 
 Authors
 -------
@@ -26,3 +26,10 @@ mkdir log           # make directory for cache
 mkdir -p temp/cache # make directory for temp
 mkdir -p www/temp   # make directory for webtemp
 chown -R www-data:www-data log temp www/temp
+```
+
+How does this work
+------------------
+Nette BasePresenter provide components for: Texyla, css, js. Each component call loader (instance of webloader) and them webloader provide minified compilation of css/js/texyla dependecy. Dependency are determinate in loaders.
+
+Nette have very good work witch cache, you don't have to worry about efficiency. Webloader run only if you change source files.
