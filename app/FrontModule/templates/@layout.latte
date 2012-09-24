@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="{$robots}" n:ifset="$robots" />
+
+    <title></title>
+
+    {control js}
+    {control css}
+    {control texyla}
+
+    <link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon" />
+
+    {block head}{/block}
+  </head>
+
+  <body style="margin-top: 60px;">
+
+    <header class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="{link :Front:Homepage:}">Web</a>
+
+          <ul class="nav">
+            <li {ifCurrent Dashboard:*}class="active"{/ifCurrent}>
+              <a href="{link :Front:Homepage:}">Úvod</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </header>
+
+    <div class="container main">
+      {snippet flash}
+      <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type}">
+        <a class="close" data-dismiss="alert">×</a>
+        {$flash->message}
+      </div>
+      {/snippet}
+
+      {include #content}
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+#
+common:
+	php:
+		date.timezone: Europe/Prague
+		# session.save_path: "%tempDir%/sessions"
+		# zlib.output_compression: yes
+		
+	nette:
+
+
+	services:
+		texy: MyTexy
+
+	factories:
+		backendCss:
+			class: BackendModule\BackendCss(%wwwDir%, @httpRequest::getUrl())
+
+		backendJs:
+			class: BackendModule\BackendJs(%wwwDir%, @httpRequest::getUrl())	
+
+production < common:
+
+development < common:
