@@ -26,11 +26,11 @@
           <a class="brand" href="{link :Front:Homepage:}">Web</a>
 
           <ul class="nav">
-            <li {ifCurrent Dashboard:*}class="active"{/ifCurrent}>
+            <li n:class="$presenter->isLinkCurrent(':Front:Homepage:texyla') ? active">
               <a href="{link :Front:Homepage:texyla}">Texyla</a>
             </li>
-            <li {ifCurrent Dashboard:*}class="active"{/ifCurrent}>
-              <a href="{link :Front:Homepage:bootstrap}">Bootsrap</a>
+            <li n:class="$presenter->isLinkCurrent(':Front:Homepage:bootstrap') ? active">
+              <a href="{link :Front:Homepage:bootstrap}">Bootstrap</a>
             </li>
           </ul>
 
