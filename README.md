@@ -27,6 +27,7 @@ mkdir -p temp/cache # make directory for temp
 mkdir -p www/temp   # make directory for webtemp
 chown -R www-data:www-data log temp www/temp
 ```
+Tip: If you get only Homepage and another pages send "Not Found" then you have bad configure (or haven't) mod_rewrite.
 
 How does this work
 ------------------
