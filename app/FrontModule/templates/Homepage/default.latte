@@ -2,3 +2,9 @@
 <h1>Homepage</h1>
 
 <p>Nette, Webloader, Texyla and Twitter, from Bootstrap minimal working example. All css a js are minified. Texy is integrated to Nette. Yes, there are some other examples, but I have some issue with each other.</p>
+
+<p>If you have problem with <tt>mod rewrite</tt>, uncomment line: 
+<code>$container->router = new SimpleRouter('Front:Homepage:default');</code>
+and comment all other line which begin 
+<code>$container->router[]</code>.</p>
+  
