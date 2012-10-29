@@ -15,7 +15,7 @@ class TexylaLoader extends WebLoader\Nette\JavaScriptLoader
 	 */
 	public function __construct($filter, $tempUri) {
 		
-		$files = new \WebLoader\FileCollection(LIBS_DIR . "/Texyla/");
+		$files = new \WebLoader\FileCollection( WWW_DIR . "/texyla/");
 		$files->addFiles(array(
 			// core
 			"js/texyla.js",

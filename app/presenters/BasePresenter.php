@@ -55,44 +55,12 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
 	{
 			$baseUri = $this->context->httpRequest->url->baseUrl;
 			$filter = new \WebLoader\Filter\VariablesFilter(array(
-				"baseUri" => $baseUri,
+				"baseUri" => $baseUri ,
 				"previewPath" => $this->link("preview"),
 				));
 
 			$texyla = new TexylaLoader($filter, $baseUri."webtemp");
 			return $texyla;
-#		$control = $this->context->createBackendJs();
-#		
-#		$control->addFilter(new \WebLoader\Filter\VariablesFilter(array(
 #			"baseUri" => $this->template->baseUrl,
-#			"previewPath" => $this->link("preview"),
-#		)));
-#		
-#		$control->addFiles(array(			
-#			"texyla/js/texyla.js",
-#			"texyla/js/selection.js",
-#			"texyla/js/texy.js",
-#			"texyla/js/buttons.js",
-#			"texyla/js/dom.js",
-#			"texyla/js/view.js",
-#			"texyla/js/window.js",
-#
-#			// languages
-#			"texyla/languages/cs.js",
-#
-#			// plugins
-#			"texyla/plugins/keys/keys.js",
-#			"texyla/plugins/resizableTextarea/resizableTextarea.js",
-#			"texyla/plugins/table/table.js",
-#			"texyla/plugins/link/link.js",
-#			"texyla/plugins/emoticon/emoticon.js",
-#			"texyla/plugins/symbol/symbol.js",
-#			"texyla/plugins/color/color.js",
-#			"texyla/plugins/textTransform/textTransform.js",
-#			
-#			"js/texyla-init.js",
-#		));
-
-#		return $control;		
 	}
 }
