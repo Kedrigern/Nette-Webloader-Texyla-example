@@ -33,6 +33,7 @@ common:
 					- https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js
 					- https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js
 				files:
+					- %wwwDir%/../libs/Bootstrap/js/bootstrap.min.js
 					- %wwwDir%/js/netteForms.js
 					- %wwwDir%/js/jquery.nette.js
 
