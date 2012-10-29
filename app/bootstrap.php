@@ -19,7 +19,7 @@ $container = $configurator->createContainer();
 
 // Setup router
 # Simple router if mod rewrite is not allowed
-# $container->router = new SimpleRouter('Front:Homepage:default');
+# $container->router = new Nette\Application\Routers\SimpleRouter('Front:Homepage:default');
 
 $container->router[] = new Route("index.php", "front:Homepage:default", Route::ONE_WAY);
 //$container->router[] = new Route("<presenter>/<action>[/<id>]", "Homepage:default");
