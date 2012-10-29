@@ -22,10 +22,10 @@ Use
 ---
 Only think to do after download is (pwd is root of project):
 ```bash
-mkdir log           # make directory for cache
-mkdir -p temp/cache # make directory for temp
-mkdir -p www/temp   # make directory for webtemp
-chown -R www-data:www-data log temp www/temp
+mkdir log              # make directory for cache
+mkdir -p temp/cache    # make directory for temp
+mkdir -p www/webtemp   # make directory for webtemp
+chown -R www-data:www-data log temp www/webtemp
 ```
 Tip: If you get only Homepage and another pages send "Not Found" then you have bad configure (or haven't) mod_rewrite.
 
