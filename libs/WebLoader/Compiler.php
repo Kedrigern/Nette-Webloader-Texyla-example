@@ -17,10 +17,10 @@ class Compiler
 	private $joinFiles = true;
 
 	/** @var array */
-	public $filters = array();
+	private $filters = array();
 
 	/** @var array */
-	public $fileFilters = array();
+	private $fileFilters = array();
 
 	/** @var IFileCollection */
 	private $collection;
@@ -137,7 +137,7 @@ class Compiler
 		// load content
 		$content = '';
 		foreach ($files as $file) {
-			$content .= $this->loadFile($file);
+			$content .= PHP_EOL . $this->loadFile($file);
 		}
 
 		// apply filters

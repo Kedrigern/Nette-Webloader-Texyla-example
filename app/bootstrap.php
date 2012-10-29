@@ -13,22 +13,26 @@ $configurator->createRobotLoader()
         ->addDirectory(APP_DIR)
         ->addDirectory(LIBS_DIR)
         ->register();
+
+$webloaderExtension = new \WebLoader\Nette\Extension();
+$webloaderExtension->install($configurator);
+
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . "/config.neon");
 $container = $configurator->createContainer();
 
 // Setup router
 # Simple router if mod rewrite is not allowed
-# $container->router = new Nette\Application\Routers\SimpleRouter('Front:Homepage:default');
+$container->router = new Nette\Application\Routers\SimpleRouter('Front:Homepage:default');
 
-$container->router[] = new Route("index.php", "front:Homepage:default", Route::ONE_WAY);
+#$container->router[] = new Route("index.php", "front:Homepage:default", Route::ONE_WAY);
 //$container->router[] = new Route("<presenter>/<action>[/<id>]", "Homepage:default");
-$container->router[] = new Route("<presenter>/<action>/<id>", array(
-        "module" => "Front",
-        "presenter" => "Homepage",
-        "action" => "default",
-        "id" => NULL,
-    ));
+#$container->router[] = new Route("<presenter>/<action>/<id>", array(
+#        "module" => "Front",
+#        "presenter" => "Homepage",
+#        "action" => "default",
+#        "id" => NULL,
+#    ));
 
 // Configure and run the application!
 $container->application->run();

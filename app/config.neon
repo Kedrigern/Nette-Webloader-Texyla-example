@@ -13,13 +13,28 @@ common:
 
 	services:
 		texy: MyTexy
+		wlCssFilter: WebLoader\Filter\CssUrlsFilter( %wwwDir% )
+
+	webloader:
+		css:
+			default:
+				files:
+					- %appDir%/../libs/Bootstrap/css/bootstrap.min.css
+					- %appDir%/../libs/Bootstrap/css/bootstrap-responsive.min.css
+					- %appDir%/../libs/Texyla/css/style.css
+					- %appDir%/../libs/Texyla/themes/default/theme.css
+				filters:
+					- @wlCssFilter
+		js: 
+			default:
+				remoteFiles:
+					- https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js
+					- https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js
+				files:
+					- %wwwDir%/js/netteForms.js
+					- %wwwDir%/js/jquery.nette.js
 
 	factories:
-		backendCss:
-			class: BackendModule\BackendCss(%wwwDir%, @httpRequest::getUrl())
-
-		backendJs:
-			class: BackendModule\BackendJs(%wwwDir%, @httpRequest::getUrl())	
 
 production < common:
 

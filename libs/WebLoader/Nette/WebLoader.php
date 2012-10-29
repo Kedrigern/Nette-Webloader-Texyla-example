@@ -28,6 +28,38 @@ abstract class WebLoader extends \Nette\Application\UI\Control
 	}
 
 	/**
+	 * @return \WebLoader\Compiler
+	 */
+	public function getCompiler()
+	{
+		return $this->compiler;
+	}
+
+	/**
+	 * @param \WebLoader\Compiler
+	 */
+	public function setCompiler(Compiler $compiler)
+	{
+		$this->compiler = $compiler;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getTempPath()
+	{
+		return $this->tempPath;
+	}
+
+	/**
+	 * @param string
+	 */
+	public function setTempPath($tempPath)
+	{
+		$this->tempPath = $tempPath;
+	}
+
+	/**
 	 * Get html element including generated content
 	 * @param string $source
 	 * @return \Nette\Utils\Html
@@ -50,24 +82,16 @@ abstract class WebLoader extends \Nette\Application\UI\Control
 
 		// remote files
 		foreach ($this->compiler->getFileCollection()->getRemoteFiles() as $file) {
-			echo $this->getElement($file);
+			echo $this->getElement($file), PHP_EOL;
 		}
 
 		foreach ($this->compiler->generate() as $file) {
-			echo $this->getElement($this->tempPath . '/' . $file->file . '?' . $file->lastModified);
+			echo $this->getElement($this->tempPath . '/' . $file->file . '?' . $file->lastModified), PHP_EOL;
 		}
 
 		if ($hasArgs) {
 			$this->compiler->setFileCollection($backup);
 		}
-	}
-
-	public function addFilter($filter){
-		$this->compiler->addFilter($filter);
-	}
-
-	public function getCompiler(){
-		return $this->compiler;
 	}
 
 }
