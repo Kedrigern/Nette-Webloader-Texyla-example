@@ -3,8 +3,35 @@
 
 <p>Nette, Webloader, Texyla and Twitter, from Bootstrap minimal working example. All css a js are minified. Texy is integrated to Nette. Yes, there are some other examples, but I have some issue with each other.</p>
 
+<h2>Mod Rewrite</h2>
 <p>If you have problem with <tt>mod rewrite</tt>, uncomment line: 
 <code>$container->router = new SimpleRouter('Front:Homepage:default');</code>
 and comment all other line which begin 
 <code>$container->router[]</code>.</p>
-  
+
+<h2>Database</h2>
+<p>DB model is:</p>
+<pre>
+SET NAMES utf8;
+
+CREATE DATABASE `nwt_test`;
+USE `nwt_test`;
+
+CREATE TABLE `article` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_czech_ci NOT NULL,
+  `keywords` varchar(45) COLLATE utf8_czech_ci DEFAULT NULL,
+  `insert_datetime` datetime NOT NULL,
+  `last_modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `content_texy` text COLLATE utf8_czech_ci NOT NULL,
+  `content_html` text COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+</pre>
+<p>DB user:</p>  
+<pre>
+mysql> grant usage on *.* to test@localhost identified by 'test';
+Query OK, 0 rows affected (0.00 sec)
+mysql> grant all privileges on nwt_test.* to test@localhost ;
+Query OK, 0 rows affected (0.06 sec)
+</pre>

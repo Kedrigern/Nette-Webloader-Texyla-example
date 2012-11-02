@@ -13,7 +13,7 @@ common:
 			errorPresenter: Error
 
 		database:
-			dsn: 'mysql:host=localhost;dbname=NWTtest'
+			dsn: 'mysql:host=localhost;dbname=nwt_test'
 			user: test
 			password: test
 
