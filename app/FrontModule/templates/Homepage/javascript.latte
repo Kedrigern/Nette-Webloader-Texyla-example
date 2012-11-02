@@ -36,6 +36,7 @@
 </div>
 
 <h1>Bootstrap test</h1>
+<h2>Dropwdown</h2>
 <div class="dropdown">
   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
@@ -43,8 +44,29 @@
   </ul>
 </div>
 
+
+<h2>Carousel</h2>
+
+<div id="myCarousel" class="carousel slide">
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+	<div class="active item">
+		<div class="span5 offset2">
+			<p>Hello wordl from first slide!</p>
+		</div>
+	</div>
+	<div class="item">…</div>
+	<div class="item">…</div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+
 <script type="text/javascript">
 	$( "#accordion-mark" ).accordion(); 
 	$( "#jtest" ).html( "<p>Jquery test success :).</p>" );
 	$( "#jtest" ).css( "background-color", "lightgreen" );
 </script>
+
