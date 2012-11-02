@@ -48,7 +48,7 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
      * @return TexylaLoader */
   protected function createComponentTexyla()
   {
-    baseUri = $this->context->httpRequest->url->baseUrl;
+    $baseUri = $this->context->httpRequest->url->baseUrl;
     $filter = new \WebLoader\Filter\VariablesFilter(array(
       "baseUri" => $baseUri ,
       "previewPath" => $this->link("preview"), )
