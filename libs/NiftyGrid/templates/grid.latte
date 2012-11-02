@@ -12,7 +12,7 @@
 {if !$control->isSubGrid}
 {$control['gridForm']->render('begin')}
 {/if}
-<table n:attr="style => $control->width ? 'width: '.$control->width.';'" class="grid">
+<table class="table table-striped table-condensed table-condensed table-bordered">
 	<thead>
 		<tr class="grid-panel">
 			<th colspan="{$colsCount}">
@@ -42,8 +42,8 @@
 			<th n:if="$control->hasButtons() || $control->hasFilterForm()" class="grid-head-column">Akce</th>
 		</tr>
 		<tr n:if="$control->hasFilterForm()">
-			<th n:if="$control->hasActionForm()" class="grid-filter-form"></th>
-			<th n:foreach="$subGrids as $subGrid" class="grid-filter-form"></th>
+			<th n:if="$control->hasActionForm()" class="btn btn-small"></th>
+			<th n:foreach="$subGrids as $subGrid" class="btn btn-small"></th>
 			<th n:foreach="$columns as $column" n:attr="class => array(grid-filter-form, $control->isSpecificFilterActive($column->name) ? grid-filter-form-active)">
 				{if $column->hasFilter()}
 					{$control['gridForm'][$control->name]['filter'][$column->name]->getControl()}
