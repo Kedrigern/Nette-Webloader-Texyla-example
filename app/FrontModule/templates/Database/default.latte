@@ -2,6 +2,7 @@
 <h1>Database integration</h1>
 <p>V DB je {count($articles)} příspěvků.</p>
 
+<h2>"Homemade" grid</h2>
 <table class="table table-bordered table-striped table-condensed table-hover">
     <caption>
         Výpis dat z DB
@@ -11,6 +12,7 @@
             <th>id</th>
             <th>name</th>
             <th>přidáno</th>
+            <th>keywords</th>
         </tr>
     </thead>
     <tbody n:foreach="$articles as $article">
@@ -18,6 +20,7 @@
             <td>{$article->id}</td>
             <td>{$article->name}</td>
             <td>{$article->insert_datetime|date:"%d. %m. %Y"}</td>
+            <td>{$article->keywords}</td>
         </tr>
     </tbody>
     <tfoot>
@@ -25,6 +28,10 @@
             <th>id</th>
             <th>name</th>
             <th>přidáno</th>
+            <th>keywords</th>
         </tr>
     </tfoot>
 </table>
+
+<h2>NiftyGrid grid</h2>
+{control articleGrid}

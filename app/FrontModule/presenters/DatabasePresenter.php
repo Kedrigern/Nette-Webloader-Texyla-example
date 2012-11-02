@@ -16,4 +16,9 @@ class DatabasePresenter extends BasePresenter
     {
         $this->template->articles = $this->articles->findAll();
     }
+    
+    protected function createComponentArticleGrid()
+    {
+        return new \ArticleGrid($this->articles->findAll());
+    }
 }
