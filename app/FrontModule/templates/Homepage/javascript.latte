@@ -38,9 +38,15 @@
 <h1>Bootstrap test</h1>
 <h2>Dropwdown</h2>
 <div class="dropdown">
-  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown trigger</a>
+  <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+	Dropdown trigger
+	<b class="caret"></b>
+  </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    ...
+    <li>1. item</li>
+    <li>2. item</li>
+    <li class="divider" />
+    <li>3. item</li>
   </ul>
 </div>
 
@@ -49,14 +55,12 @@
 
 <div id="myCarousel" class="carousel slide">
     <!-- Carousel items -->
-    <div class="carousel-inner">
-	<div class="active item">
-		<div class="span5 offset2">
-			<p>Hello wordl from first slide!</p>
-		</div>
+    <div class="carousel-inner" style="min-height: 4em;">
+	<div class="active item span5 offset2">
+		<p>Hello wordl from first slide!</p>
 	</div>
-	<div class="item">…</div>
-	<div class="item">…</div>
+	<div class="item span5 offset2">Second div in carousel.<br />With two lines.</div>
+	<div class="item span5 offset2">Third div in carousel.</div>
     </div>
     <!-- Carousel nav -->
     <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
