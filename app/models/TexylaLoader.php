@@ -1,7 +1,6 @@
 <?php
 /**
  * Texyla loader
- *
  * @author Jan Marek
  */
 class TexylaLoader extends WebLoader\Nette\JavaScriptLoader
@@ -47,9 +46,6 @@ class TexylaLoader extends WebLoader\Nette\JavaScriptLoader
 
 		// setup filter
 		$compiler->addFilter($filter);
-
-		// minifying JS
-//		$compiler->addFilter("JSMin::minify");
 
 		parent::__construct($compiler, $tempUri);
 	}
