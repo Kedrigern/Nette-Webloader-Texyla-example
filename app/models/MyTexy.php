@@ -18,9 +18,7 @@ class MyTexy extends Texy
 	 */
 	public function __construct()
 	{
-
-    
-    parent::__construct();
+		parent::__construct();
 
 		// output
 		$this->setOutputMode(self::HTML4_TRANSITIONAL);
@@ -39,7 +37,6 @@ class MyTexy extends Texy
 		$this->allowed['deprecated/codeswitch'] = true; // `=code
 
 		// images
-	
 		$this->imageModule->fileRoot = "/files";
 		$this->imageModule->root =  "/files";
 
@@ -51,8 +48,6 @@ class MyTexy extends Texy
 		$this->addHandler('image', array($this, 'gravatarHandler'));
 	}
 
-
-
 	/**
 	 * Template factory
 	 * @return Template
@@ -63,8 +58,6 @@ class MyTexy extends Texy
 		$template->registerFilter(new Nette\Latte\Engine);
 		return $template;
 	}
-	
-
 
 	/**
 	 * @param TexyHandlerInvocation  handler invocation
@@ -97,8 +90,6 @@ class MyTexy extends Texy
 		return $invocation->proceed();
 	}
 
-
-
 	/**
 	 * YouTube handler for images
 	 * 
@@ -116,7 +107,6 @@ class MyTexy extends Texy
 		if (count($parts) !== 2 || $parts[0] !== "youtube") {
 			return $invocation->proceed();
 		}
-
 
 		$template = $this->createTemplate()->setFile(APP_DIR . "/templates/inc/@youtube.phtml");
 		$template->id = $parts[1];
