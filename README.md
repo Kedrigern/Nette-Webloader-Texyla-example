@@ -34,3 +34,31 @@ How does this work
 Nette BasePresenter provide components for: Texyla, css, js. Each component call loader (instance of webloader) and them webloader provide minified compilation of css/js/texyla dependecy. Dependency are determinate in loaders.
 
 Nette have very good work witch cache, you don't have to worry about efficiency. Webloader run only if you change source files.
+
+Database model
+--------------
+Create sql skript:
+```sql
+SET NAMES utf8;
+
+CREATE DATABASE `nwt_test`;
+USE `nwt_test`;
+
+CREATE TABLE `article` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) COLLATE utf8_czech_ci NOT NULL,
+  `keywords` varchar(45) COLLATE utf8_czech_ci DEFAULT NULL,
+  `insert_datetime` datetime NOT NULL,
+  `last_modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `content_texy` text COLLATE utf8_czech_ci NOT NULL,
+  `content_html` text COLLATE utf8_czech_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+```
+DB user test, password test, create:
+```bash
+mysql> grant usage on *.* to test@localhost identified by 'test';
+Query OK, 0 rows affected (0.00 sec)
+mysql> grant all privileges on nwt_test.* to test@localhost ;
+Query OK, 0 rows affected (0.06 sec)
+```
