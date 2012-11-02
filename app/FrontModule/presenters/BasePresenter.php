@@ -1,5 +1,3 @@
 <?php
 namespace FrontModule;
-class BasePresenter extends \BasePresenter
-{
-}
+class BasePresenter extends \BasePresenter {}
