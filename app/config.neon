@@ -9,7 +9,16 @@ common:
 		# zlib.output_compression: yes
 		
 	nette:
+		application:
+			errorPresenter: Error
 
+		database:
+			dsn: 'mysql:host=localhost;dbname=NWTtest'
+			user: test
+			password: test
+
+		session:
+			expiration: 30 days
 
 	services:
 		texy: MyTexy
