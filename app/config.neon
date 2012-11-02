@@ -23,6 +23,8 @@ common:
 	services:
 		texy: MyTexy
 		wlCssFilter: WebLoader\Filter\CssUrlsFilter( %wwwDir% )
+		# Database services
+		articleRepository : nwt\ArticleRepository
 
 	webloader:
 		css:
