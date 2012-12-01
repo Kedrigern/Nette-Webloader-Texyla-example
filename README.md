@@ -8,11 +8,11 @@ I just compiled Nette framework with libs - all merit have authors of:
 
 **[Nette](http://www.nette.org "Nette framework")** - [Nette Foundation](http://nettefoundation.com/ "Nette foundation") - https://github.com/nette/nette
 
-**Texyla** - Jan Marek - https://github.com/janmarek/Texyla
+**[Texyla](https://github.com/janmarek/Texyla)** - Jan Marek
 
-**Webloader** - Jan Marek - https://github.com/janmarek/WebLoader
+**[Webloader](https://github.com/janmarek/WebLoader)** - Jan Marek
 
-**Twitter, from Bootstrap** - [Twitter, inc](http://www.twitter.com) - https://github.com/twitter/bootstrap
+**[Twitter, from Bootstrap](https://github.com/twitter/bootstrap)** - [Twitter, inc](http://www.twitter.com)
 
 The first concept of this skeleton is from Jan Suchánek.
 

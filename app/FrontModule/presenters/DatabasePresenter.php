@@ -1,5 +1,7 @@
-<?php
-namespace FrontModule;
+<?php namespace FrontModule;
+/**
+ * @author Ondřej Profant, 2012
+ */
 
 class DatabasePresenter extends BasePresenter
 {
