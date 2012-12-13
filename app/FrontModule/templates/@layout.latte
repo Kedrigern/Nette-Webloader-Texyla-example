@@ -2,14 +2,17 @@
 <html lang="cs">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="Nette webloader texyla example" />
+    <meta name="author" content="Ondřej Profant" />
     <meta name="robots" content="{$robots}" n:ifset="$robots" />
 
-    <title></title>
+    <title>Nette webloader texyla example</title>
 
+    <!-- CSS -->
     {control css}
+    <!-- JS -->
     {control js}
+    <!-- TEXYLA -->
     {control texyla}
 
     <link rel="shortcut icon" href="{$basePath}/favicon.ico" type="image/x-icon" />
@@ -40,6 +43,9 @@
             </li>
             <li n:class="$presenter->isLinkCurrent(':Front:Database:*') ? active">
               <a href="{link :Front:Database:}">Database</a>
+            </li>
+            <li n:class="$presenter->isLinkCurrent(':Front:Twitter:*') ? active">
+                <a href="{link :Front:Twitter:}">Twitter</a>
             </li>
           </ul>
         </div>

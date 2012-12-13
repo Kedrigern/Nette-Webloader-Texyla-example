@@ -25,10 +25,8 @@ class TexylaLoader extends WebLoader\Nette\JavaScriptLoader
 			"js/view.js",
 			"js/ajaxupload.js",
 			"js/window.js",
-
 			// languages
 			"languages/cs.js",
-
 			// plugins
 			"plugins/keys/keys.js",
 			"plugins/resizableTextarea/resizableTextarea.js",
@@ -38,11 +36,10 @@ class TexylaLoader extends WebLoader\Nette\JavaScriptLoader
 			"plugins/symbol/symbol.js",
 			"plugins/color/color.js",
 			"plugins/textTransform/textTransform.js",
-			
-			"../../www/js/texyla-init.js",
+			"../js/texyla-init.js",
 		));
 
-		$compiler = \WebLoader\Compiler::createJsCompiler($files, WWW_DIR . "/webtemp");
+		$compiler = \WebLoader\Compiler::createJsCompiler($files, WWW_DIR."/webtemp");
 
 		// setup filter
 		$compiler->addFilter($filter);

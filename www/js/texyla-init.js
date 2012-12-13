@@ -9,7 +9,7 @@ $.texyla.setDefaults({
 });
 
 function texylaInt(){
-	$("aaa").texyla({
+    $("textarea").texyla({
 		toolbar: [
 			'h1', 'h2', 'h3', 'h4',
 			null,
@@ -22,8 +22,6 @@ function texylaInt(){
 			{ type: "label", text: "Vložit"}, 'link', 'img', 'table', 'emoticon', 'symbol',
 			null,
 			'color', 'textTransform',
-			null,
-			'files', 'youtube', 'gravatar',
 			null,
 			'div', ['html', 'blockquote', 'text', 'comment'],
 			null,

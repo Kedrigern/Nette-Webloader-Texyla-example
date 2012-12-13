@@ -54,7 +54,7 @@ abstract class BasePresenter extends \Nette\Application\UI\Presenter
       "previewPath" => $this->link("preview"), )
     );
   
-    $texyla = new TexylaLoader($filter, $baseUri."webtemp");
+    $texyla = new TexylaLoader($filter, $baseUri . "webtemp");
     return $texyla;
   }
 }
