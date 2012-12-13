@@ -22,7 +22,7 @@ common:
 
 	services:
 		texy: MyTexy
-		wlCssFilter: WebLoader\Filter\CssUrlsFilter( %wwwDir% )
+		wlCssFilter: WebLoader\Filter\CssUrlsFilter( %wwwDir%/webtemp )
 		# Database services
 		articleRepository : nwt\ArticleRepository
 
@@ -32,8 +32,9 @@ common:
 				remoteFiles:
 					- http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css
 				files:
-					- %appDir%/../libs/Bootstrap/css/bootstrap.min.css
-					- %appDir%/../libs/Bootstrap/css/bootstrap-responsive.min.css
+					- %wwwDir%/../libs/Bootstrap/css/bootstrap.min.css
+					- %wwwDir%/../libs/Bootstrap/css/bootstrap-responsive.min.css
+					- %wwwDir%/../libs/TwitterControl/client-side/TwitterControl.css
 					- %wwwDir%/texyla/css/style.css
 					- %wwwDir%/texyla/themes/default/theme.css
 				filters:
@@ -45,6 +46,7 @@ common:
 					- https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js
 				files:
 					- %wwwDir%/../libs/Bootstrap/js/bootstrap.min.js
+					- %wwwDir%/../libs/TwitterControl/client-side/TwitterControl.js
 					- %wwwDir%/js/netteForms.js
 					- %wwwDir%/js/jquery.nette.js
 
