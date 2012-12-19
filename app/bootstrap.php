@@ -17,6 +17,8 @@ $configurator->createRobotLoader()
 $webloaderExtension = new \WebLoader\Nette\Extension();
 $webloaderExtension->install($configurator);
 
+Kdyby\Extension\Forms\Replicator\Replicator::register();
+
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . "/config.neon");
 $container = $configurator->createContainer();

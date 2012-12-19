@@ -1,7 +1,5 @@
 <?php namespace FrontModule;
-/**
- * @author Ondřej Profant, 2012
- */
+/** @author Ondřej Profant, 2012  */
 
 class HomepagePresenter extends BasePresenter
 {
@@ -12,4 +10,3 @@ class HomepagePresenter extends BasePresenter
         return $form;
     }
 }
-

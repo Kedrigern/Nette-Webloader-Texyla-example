@@ -22,35 +22,38 @@
 
   <body style="margin-top: 60px;">
 
-    <header class="navbar navbar-fixed-top">
+  <header class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="{link :Front:Homepage:}">Web</a>
-          <ul class="nav nav-collapse collapse">
-            <li n:class="$presenter->isLinkCurrent(':Front:Homepage:texyla') ? active">
-              <a href="{link :Front:Homepage:texyla}">Texyla</a>
-            </li>
-            <li n:class="$presenter->isLinkCurrent(':Front:Homepage:bootstrap') ? active">
-              <a href="{link :Front:Homepage:bootstrap}">Bootstrap</a>
-            </li>
-            <li n:class="$presenter->isLinkCurrent(':Front:Homepage:javascript') ? active">
-              <a href="{link :Front:Homepage:javascript}">JavaScript</a>
-            </li>
-            <li n:class="$presenter->isLinkCurrent(':Front:Database:*') ? active">
-              <a href="{link :Front:Database:}">Database</a>
-            </li>
-            <li n:class="$presenter->isLinkCurrent(':Front:Twitter:*') ? active">
-                <a href="{link :Front:Twitter:}">Twitter</a>
-            </li>
-          </ul>
-        </div>
+          <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="{link :Front:Homepage:}">Web</a>
+              <ul class="nav nav-collapse collapse">
+                  <li n:class="$presenter->isLinkCurrent(':Front:Homepage:texyla') ? active">
+                      <a href="{link :Front:Homepage:texyla}">Texyla</a>
+                  </li>
+                  <li n:class="$presenter->isLinkCurrent(':Front:Homepage:bootstrap') ? active">
+                      <a href="{link :Front:Homepage:bootstrap}">Bootstrap</a>
+                  </li>
+                  <li n:class="$presenter->isLinkCurrent(':Front:Homepage:javascript') ? active">
+                      <a href="{link :Front:Homepage:javascript}">JavaScript</a>
+                  </li>
+                  <li n:class="$presenter->isLinkCurrent(':Front:Database:*') ? active">
+                      <a href="{link :Front:Database:}">Database</a>
+                  </li>
+                  <li n:class="$presenter->isLinkCurrent(':Front:Twitter:*') ? active">
+                      <a href="{link :Front:Twitter:}">Twitter</a>
+                  </li>
+                  <li n:class="$presenter->isLinkCurrent(':Front:Form:*') ? active">
+                      <a href="{link :Front:Form:}">Forms</a>
+                  </li>
+              </ul>
+          </div>
       </div>
-    </header>
+  </header>
 
     <div class="container main">
       {snippet flash}
