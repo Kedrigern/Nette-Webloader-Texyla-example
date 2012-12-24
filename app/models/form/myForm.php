@@ -9,7 +9,9 @@ class MyForm extends Form
     public function __construct()
     {
         parent::__construct();
-        $this->addGroup('Meta');
+        $this->addGroup('User');
+        $this['user'] = new userContainer();
+        $this->addGroup('Personal');
         $this['name'] = new nameContainer();
         $this->addGroup('Address');
         $this['address'] = new addressContainer();

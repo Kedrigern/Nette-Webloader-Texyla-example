@@ -1,12 +1,56 @@
 {block head}
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+<script>
+    $(function () {
+        // Begin: Jquery test
+        $("#jtest").html("<p>Jquery test success :).</p>");
+        $("#jtest").css("background-color", "lightgreen");
+        // End: Jquery test
+
+        // Begin: accordion
+        $("#accordion-mark").accordion();
+        // End: accordion
+
+        // Begin: autocomplete
+        function Acomplete(select_name) {
+            $("input[name=" + select_name + "]").autocomplete({
+                source:function (request, response) {
+                    $.ajax({
+                        url:"{!$presenter->link('autocomplete')}",
+                        data:{
+                            whichData:select_name,
+                            typedText:request.term
+                        },
+                        success:function (data) {
+                            response($.map(data, function (item) {
+                                return { label:item, value:item }
+                            }));
+                        }
+                    });
+                },
+                minLength:2,
+                open:function () {
+                    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                },
+                close:function () {
+                    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                }
+            });
+        }
+
+        var cities = new Acomplete('city');
+        var greetings = new Acomplete('pozdrav');
+
+        // End: Autocomplete
+    });
+</script>
 {/block}
 
 {block content}
+
 <h1>Jquery test</h1>
 
 <div id="jtest" style="background-color: red;">
-	<p>Jquery test failed :(</p>
+    <p>Jquery test failed :(</p>
 </div>
 
 <h1>Jquery UI test</h1>
@@ -14,40 +58,78 @@
 <h2>Show and hide paragraphs</h2>
 
 <div id="accordion-mark">
-	<h3>Heading one</h3>
-	<div>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
-	</div>
+    <h3>Heading one</h3>
 
-	<h3>Heading two</h3>
-  <div>
-    <p>Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, id fringilla sem nunc vel mi. Nam dictum, odio nec pretium volutpat, arcu ante placerat erat, non tristique elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et, tincidunt et orci. Fusce eget orci a orci congue vestibulum. Ut dolor diam, elementum et vestibulum eu, porttitor vel elit. Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id justo. Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper. Aliquam at massa ipsum. Quisque bibendum purus convallis nulla ultrices ultricies. Nullam aliquam, mi eu aliquam tincidunt, purus velit laoreet tortor, viverra pretium nisi quam vitae mi. Fusce vel volutpat elit. Nam sagittis nisi dui.</p>
-  </div>
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris.
+            Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et
+            diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia
+            consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id
+            dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra
+            tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec
+            viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis
+            parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis
+            semper ac in est.</p>
+    </div>
 
-	<h3>Heading three</h3>
-  <div>
-    <p>Suspendisse lectus leo, consectetur in tempor sit amet, placerat quis neque. Etiam luctus porttitor lorem, sed suscipit est rutrum non. Curabitur lobortis nisl a enim congue semper. Aenean commodo ultrices imperdiet. Vestibulum ut justo vel sapien venenatis tincidunt. Phasellus eget dolor sit amet ipsum dapibus condimentum vitae quis lectus. Aliquam ut massa in turpis dapibus convallis. Praesent elit lacus, vestibulum at malesuada et, ornare et est. Ut augue nunc, sodales ut euismod non, adipiscing vitae orci. Mauris ut placerat justo. Mauris in ultricies enim. Quisque nec est eleifend nulla ultrices egestas quis ut quam. Donec sollicitudin lectus a mauris pulvinar id aliquam urna cursus. Cras quis ligula sem, vel elementum mi. Phasellus non ullamcorper urna.</p>
-  </div>
+    <h3>Heading two</h3>
 
-	<h3>Heading four</h3>
-  <div>
-    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In euismod ultrices facilisis. Vestibulum porta sapien adipiscing augue congue id pretium lectus molestie. Proin quis dictum nisl. Morbi id quam sapien, sed vestibulum sem. Duis elementum rutrum mauris sed convallis. Proin vestibulum magna mi. Aenean tristique hendrerit magna, ac facilisis nulla hendrerit ut. Sed non tortor sodales quam auctor elementum. Donec hendrerit nunc eget elit pharetra pulvinar. Suspendisse id tempus tortor. Aenean luctus, elit commodo laoreet commodo, justo nisi consequat massa, sed vulputate quam urna quis eros. Donec vel.</p>
-  </div>
+    <div>
+        <p>Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas
+            convallis ullamcorper ultricies. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis
+            velit, id fringilla sem nunc vel mi. Nam dictum, odio nec pretium volutpat, arcu ante placerat erat, non
+            tristique elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et, tincidunt et orci. Fusce eget
+            orci a orci congue vestibulum. Ut dolor diam, elementum et vestibulum eu, porttitor vel elit. Curabitur
+            venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id justo. Nullam
+            cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper. Aliquam at
+            massa ipsum. Quisque bibendum purus convallis nulla ultrices ultricies. Nullam aliquam, mi eu aliquam
+            tincidunt, purus velit laoreet tortor, viverra pretium nisi quam vitae mi. Fusce vel volutpat elit. Nam
+            sagittis nisi dui.</p>
+    </div>
+
+    <h3>Heading three</h3>
+
+    <div>
+        <p>Suspendisse lectus leo, consectetur in tempor sit amet, placerat quis neque. Etiam luctus porttitor lorem,
+            sed suscipit est rutrum non. Curabitur lobortis nisl a enim congue semper. Aenean commodo ultrices
+            imperdiet. Vestibulum ut justo vel sapien venenatis tincidunt. Phasellus eget dolor sit amet ipsum dapibus
+            condimentum vitae quis lectus. Aliquam ut massa in turpis dapibus convallis. Praesent elit lacus, vestibulum
+            at malesuada et, ornare et est. Ut augue nunc, sodales ut euismod non, adipiscing vitae orci. Mauris ut
+            placerat justo. Mauris in ultricies enim. Quisque nec est eleifend nulla ultrices egestas quis ut quam.
+            Donec sollicitudin lectus a mauris pulvinar id aliquam urna cursus. Cras quis ligula sem, vel elementum mi.
+            Phasellus non ullamcorper urna.</p>
+    </div>
+
+    <h3>Heading four</h3>
+
+    <div>
+        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In euismod
+            ultrices facilisis. Vestibulum porta sapien adipiscing augue congue id pretium lectus molestie. Proin quis
+            dictum nisl. Morbi id quam sapien, sed vestibulum sem. Duis elementum rutrum mauris sed convallis. Proin
+            vestibulum magna mi. Aenean tristique hendrerit magna, ac facilisis nulla hendrerit ut. Sed non tortor
+            sodales quam auctor elementum. Donec hendrerit nunc eget elit pharetra pulvinar. Suspendisse id tempus
+            tortor. Aenean luctus, elit commodo laoreet commodo, justo nisi consequat massa, sed vulputate quam urna
+            quis eros. Donec vel.</p>
+    </div>
 </div>
 
-<h1>Bootstrap test</h1>
+<h2>Autocomplete</h2>
+{control myForm}
+
+<h1>Bootstrap JS test</h1>
 <h2>Dropwdown</h2>
 <div class="dropdown">
-  <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
-	Dropdown trigger
-	<b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-    <li>1. item</li>
-    <li>2. item</li>
-    <li class="divider" />
-    <li>3. item</li>
-  </ul>
+    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+        Dropdown trigger
+        <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li>1. item</li>
+        <li>2. item</li>
+        <li class="divider"/>
+        <li>3. item</li>
+    </ul>
 </div>
 
 
@@ -56,21 +138,14 @@
 <div id="myCarousel" class="carousel slide">
     <!-- Carousel items -->
     <div class="carousel-inner" style="min-height: 4em;">
-	<div class="active item span5 offset2">
-		<p>Hello wordl from first slide!</p>
-	</div>
-	<div class="item span5 offset2">Second div in carousel.<br />With two lines.</div>
-	<div class="item span5 offset2">Third div in carousel.</div>
+        <div class="active item span5 offset2">
+            <p>Hello wordl from first slide!</p>
+        </div>
+        <div class="item span5 offset2">Second div in carousel.<br/>With two lines.</div>
+        <div class="item span5 offset2">Third div in carousel.</div>
     </div>
     <!-- Carousel nav -->
     <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
     <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
-
-
-<script type="text/javascript">
-	$( "#accordion-mark" ).accordion(); 
-	$( "#jtest" ).html( "<p>Jquery test success :).</p>" );
-	$( "#jtest" ).css( "background-color", "lightgreen" );
-</script>
 

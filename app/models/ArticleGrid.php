@@ -22,10 +22,10 @@ class ArticleGrid extends \NiftyGrid\Grid {
         $this->setDefaultOrder("article.id DESC");
         $this->setPerPageValues(array(2, 5, 10));
 
-	$this->addColumn('id', 'Id')
+	    $this->addColumn('id', 'Id')
             ->setTextFilter();
         
-	$this->addColumn('name', 'Name')
+	    $this->addColumn('name', 'Name')
             ->setTextEditable()
             ->setTextFilter()
             ->setAutocomplete(5);

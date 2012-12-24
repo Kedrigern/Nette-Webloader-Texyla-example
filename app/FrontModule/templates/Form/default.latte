@@ -1,3 +1,22 @@
+{block head}
+<script>
+(function($) {
+    $.fn.toggleDisabled = function() {
+        return this.each(function() {
+            var $this = $(this);
+            if ($this.attr('disabled')) $this.removeAttr('disabled');
+            else $this.attr('disabled', 'disabled');
+        });
+    };
+})(jQuery);
+
+function hideAddress() {
+    $("input.address-to-hide").toggleDisabled();
+    $("select.address-to-hide").toggleDisabled();
+}
+</script>
+{/block}
+
 {block content}
 <h1>Forms</h1>
 

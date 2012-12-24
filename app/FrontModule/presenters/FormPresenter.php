@@ -1,7 +1,6 @@
 <?php namespace FrontModule;
 /** @author Ondřej Profant, 2012 */
-use Kdyby\Extension\Forms\BootstrapRenderer\BootstrapRenderer,
-    Nette\Forms\Container;
+use Kdyby\Extension\Forms\BootstrapRenderer\BootstrapRenderer;
 
 class FormPresenter extends BasePresenter
 {
@@ -13,14 +12,16 @@ class FormPresenter extends BasePresenter
         return $form;
     }
 
-    protected  function createComponentForm2()
-    {
-
-    }
-
     public function formSubmited(\MyForms\MyForm $form)
     {
-        print_r( $form->getValues( true ) );
-        die('');
+        $values = $form->getValues(true);
+        if( $values['address']['optional'] ) {
+            $values['address'] = null;
+        } else {
+            unset($values['address']['optional']);
+        }
+        print_r($values);
+        die;
+        $this->flashMessage("Result: " . implode(', ', $values), 'success' );
     }
 }
