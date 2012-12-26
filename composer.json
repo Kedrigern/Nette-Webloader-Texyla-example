@@ -1,0 +1,13 @@
+{
+	"name": "kedrigern/nette-webloader-texyla-example",
+	"description": "Nette, Webloader, Texyla and Twitter, from Bootstrap minimal working example.",
+	"homepage": "https://github.com/Kedrigern/Nette-Webloader-Texyla-example",
+	"require": {
+		"php": ">= 5.4.0",
+		"nette/nette": "2.0.*",
+		"JanMarek/WebLoader": "dev-master",
+		"kdyby/bootstrap-form-renderer": "dev-master",
+		"smasty/TwitterControl": "dev-master",
+		"dg/texy": "dev-master"
+	}
+}

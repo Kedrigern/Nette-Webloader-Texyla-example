@@ -1,7 +1,9 @@
 <?php
 use Nette\Application\Routers\Route;
 // Load Nette Framework
-require LIBS_DIR . "/Nette/loader.php";
+//require LIBS_DIR . "/Nette/loader.php";
+require LIBS_DIR . "/../vendor/autoload.php";
+
 // Configure application
 $configurator = new Nette\Config\Configurator;
 // Enable Nette Debugger for error visualisation & logging
@@ -16,8 +18,6 @@ $configurator->createRobotLoader()
 
 $webloaderExtension = new \WebLoader\Nette\Extension();
 $webloaderExtension->install($configurator);
-
-Kdyby\Extension\Forms\Replicator\Replicator::register();
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . "/config.neon");

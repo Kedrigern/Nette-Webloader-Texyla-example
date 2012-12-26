@@ -1,6 +1,10 @@
+# tmps
 *~
 *tmp
 .idea
-temp
+composer.lock
+# dirs
 log
+temp
+vendor
 wwww/webtemp

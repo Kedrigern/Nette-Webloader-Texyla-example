@@ -32,9 +32,9 @@ common:
 				remoteFiles:
 					- http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css
 				files:
-					- %wwwDir%/../libs/Bootstrap/css/bootstrap.min.css
-					- %wwwDir%/../libs/Bootstrap/css/bootstrap-responsive.min.css
-					- %wwwDir%/../libs/TwitterControl/client-side/TwitterControl.css
+					- %wwwDir%/../libs/bootstrap/css/bootstrap.min.css
+					- %wwwDir%/../libs/bootstrap/css/bootstrap-responsive.min.css
+					- %wwwDir%/../vendor/smasty/TwitterControl/client-side/TwitterControl.css
 					- %wwwDir%/texyla/css/style.css
 					- %wwwDir%/texyla/themes/default/theme.css
 				filters:
@@ -45,10 +45,11 @@ common:
 					- https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
 					- https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js
 				files:
-					- %wwwDir%/../libs/Bootstrap/js/bootstrap.min.js
-					- %wwwDir%/../libs/TwitterControl/client-side/TwitterControl.js
-					- %wwwDir%/js/netteForms.js
+					- %wwwDir%/../libs/bootstrap/js/bootstrap.min.js
+					- %wwwDir%/../vendor/smasty/TwitterControl/client-side/TwitterControl.js
+					- %wwwDir%/../vendor/nette/nette/client-side/netteForms.js
 					- %wwwDir%/js/jquery.nette.js
+					- %wwwDir%/js/texyla-init.js
 
 	factories:
 

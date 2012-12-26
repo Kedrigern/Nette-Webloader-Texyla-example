@@ -14,6 +14,8 @@ I just compiled Nette framework with libs - all merit have authors of:
 
 **[Twitter, from Bootstrap](https://github.com/twitter/bootstrap)** - [Twitter, inc](http://www.twitter.com)
 
+**[Composer](http://getcomposer.org)**
+
 The first concept of this skeleton is from Jan Suchánek.
 
 Thanks!
@@ -26,7 +28,8 @@ mkdir log              # make directory for cache
 mkdir -p temp/cache    # make directory for temp
 mkdir -p www/webtemp   # make directory for webtemp
 chown -R www-data:www-data log temp www/webtemp
-libs/move_resources_to_root.sh # copy resources from libs to the webtemp
+composer install       # composer install dependencies
+scrips/move_resources_to_root.sh # copy resources from libs to the webtemp
 ```
 Tip: If you get only Homepage and another pages send "Not Found" then you have bad configure (or haven't) mod_rewrite.
 
