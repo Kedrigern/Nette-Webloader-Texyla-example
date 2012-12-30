@@ -5,7 +5,7 @@
 	"require": {
 		"php": ">= 5.4.0",
 		"nette/nette": "2.0.*",
-		"JanMarek/WebLoader": "2.0.*",
+		"JanMarek/WebLoader": "dev-master",
 		"kdyby/bootstrap-form-renderer": "1.1.*",
 		"smasty/TwitterControl": "2.0.*",
 		"dg/texy": "2.2.*"
