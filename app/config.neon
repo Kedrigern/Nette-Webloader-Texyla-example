@@ -25,6 +25,8 @@ common:
 		wlCssFilter: WebLoader\Filter\CssUrlsFilter( %wwwDir%/webtemp )
 		# Database services
 		articleRepository : nwt\ArticleRepository
+		userRepository : nwt\UserRepository
+		sql : nwt\SqlWrapper
 
 	webloader:
 		css:

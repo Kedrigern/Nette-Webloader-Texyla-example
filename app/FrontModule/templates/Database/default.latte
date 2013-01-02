@@ -14,7 +14,8 @@
         <tr>
             <th>id</th>
             <th>name</th>
-            <th>přidáno</th>
+            <th>inserted</th>
+            <th>author</th>
             <th>keywords</th>
         </tr>
     </thead>
@@ -23,6 +24,7 @@
             <td>{$article->id}</td>
             <td>{$article->name}</td>
             <td>{$article->insert_datetime|date:"%d. %m. %Y"}</td>
+            <td>{is_null($article->user_id) ? anonym : ($article->user->name .' '. $article->user->surname)}</td>
             <td>{$article->keywords}</td>
         </tr>
     </tbody>
@@ -30,7 +32,8 @@
         <tr>
             <th>id</th>
             <th>name</th>
-            <th>přidáno</th>
+            <th>inserted</th>
+            <th>author</th>
             <th>keywords</th>
         </tr>
     </tfoot>
@@ -38,3 +41,7 @@
 
 <h2>NiftyGrid grid</h2>
 {control articleGrid}
+
+<h2>Editation</h2>
+<p>This is form for editation item which id = 2.</p>
+{control editation}

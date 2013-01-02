@@ -20,3 +20,21 @@ class MyForm extends Form
             ->setAttribute('class', 'btn btn-large btn-primary');
     }
 }
+
+class ArticleForm extends Form
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->addText('id', 'Id')
+            ->setDisabled();
+        $this->addText('name', 'Name')
+            ->addRule(Form::FILLED, '%label is required.');
+        $this->addSelect('user_id', 'Author');
+        $this->addText('keywords', 'Keywords')
+            ->setAttribute('class', 'input-xxlarge')
+            ->setOption('description', 'Keywords separate by space.');
+        $this->addTextArea('content_texy', 'Text')
+            ->setAttribute('class', 'texyla span10');
+    }
+}

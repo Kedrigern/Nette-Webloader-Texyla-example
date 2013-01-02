@@ -1,5 +1,4 @@
-<?php
-namespace nwt;
+<?php namespace nwt;
 
 /**
  * Provádí operace nad databázovou tabulkou.
@@ -43,4 +42,22 @@ abstract class Repository extends \Nette\Object
         return $this->getTable()->where($by);
     }
 
+    /**
+     * @param int $id
+     * @param array $what
+     * @return FALSE | int
+     */
+    public function update($id, array $what)
+    {
+        if( $what['user_id'] == 'null' ) {
+            $what['user_id'] = null;
+        }
+
+        $item = $this->getTable()->get($id);
+        if( $item ) {
+            return $item->update($what);
+        } else {
+            return false;
+        }
+    }
 }
