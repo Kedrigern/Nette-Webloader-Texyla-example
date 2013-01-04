@@ -21,3 +21,14 @@ function hideAddress() {
 <h1>Forms</h1>
 
 {control myForm}
+
+<script>
+    $(document).ready(function() {
+                // of course better is use id, but this is more common way
+                if( $('input[name="address[optional]"]').attr('checked') == 'checked' ) {
+                    hideAddress();
+                }
+            }
+    )
+</script>
+{/block}
