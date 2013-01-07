@@ -49,7 +49,7 @@ class addressContainer extends BaseContainer
     protected function configure()
     {
         $this->addCheckbox('optional', 'bez adresy')
-            ->setDefaultValue(false)
+            ->setDefaultValue(true)
             ->setAttribute("onchange", "hideAddress()");
         $this->addText('street', 'Ulice')
             ->setAttribute('class', 'address-to-hide');

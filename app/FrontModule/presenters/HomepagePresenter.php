@@ -9,6 +9,12 @@ class HomepagePresenter extends BasePresenter
         "pozdrav" => array(
             'ahoj', 'nazdar', 'cau', 'ahojda', 'nazdarecek', 'caues', 'salut', 'pozdravy', 'zdar', 'zdary'
         ),
+        "pozdrav2" => array(
+            'example' => array(
+                'example',
+                'example item description'
+            )
+        ),
         "city" => array(
             'Praha', 'Brno', 'Ostrava', 'Plzeň', 'Liberec', 'Olomouc', 'Ústí nad Labem', 'Hradec Králové',
             'České Budějovice', 'Pardubice', 'Havířov', 'Zlín', 'Kladno', 'Most', 'Karviná', 'Opava',
@@ -34,7 +40,10 @@ class HomepagePresenter extends BasePresenter
         $form = new Form();
         $form->addText('pozdrav', 'Czech greetings: ')
             ->setOption('description', 'For example: Ahoj, Ahojda, Zdar, Zdary');
-        $form->addText('city', 'Czech cities: ');
+        $form->addText('city', 'Czech cities: ')
+            ->setOption('description', 'For example: Praha, Brno, Ostrava, ...');
+        $form->addText('pozdrav2', 'Example: ')
+            ->setOption('description', 'Jiná položka v nabídce a jiná se vkládá.');
         $form->addSubmit('save', 'Save');
         $form->onSuccess[] = callback($this, 'submitted');
         return $form;
@@ -52,4 +61,46 @@ class HomepagePresenter extends BasePresenter
         $matches = preg_grep("/$typedText/i", $this->data[$whichData] );
         $this->sendResponse(new \Nette\Application\Responses\JsonResponse($matches));
     }
+
+    public function actionComplete($whichData, $typedText ='')
+    {
+        $this->sendResponse(new \Nette\Application\Responses\JsonResponse ($this->data['pozdrav2'] ));
+    }
+
+/*    private function one_level($ancestor, $menu)
+    {
+          $sql="SELECT c.*
+                FROM category AS c
+                JOIN category_closure cc ON (c.id = cc.descendant)
+                WhERE cc.ancestor = $ancestor AND depth = 1";
+          $level = $this->context->sql->sql($sql);
+          foreach($table as $row) {
+              array_push($menu, $row);
+              array_push($menu, $this->one_level($row, $menu));
+          }
+    }
+
+    public function renderMenu()
+    {
+        $sql = 'SELECT c.*
+                FROM category AS c
+                JOIN category_closure cc ON (c.id = cc.descendant)
+                WhERE cc.ancestor = 1 AND depth = 1';
+        $table = $this->context->sql->sql($sql);
+        $menu = array();
+        foreach($table as $row) {
+            array_push($menu, $row);
+            $sql="SELECT c.*
+                FROM category AS c
+                JOIN category_closure cc ON (c.id = cc.descendant)
+                WhERE cc.ancestor = $row->id AND depth = 1";
+            $subtable = $this->context->sql->sql($sql);
+            array_push($menu, );
+        }
+        echo("<hr />");
+        print_r($menu);
+        die();
+
+        //$this->template->menu = $this->context->sql->sql($sql);
+    }*/
 }

@@ -37,10 +37,43 @@
             });
         }
 
+        function Acomplete2(select_name) {
+            $("input[name=" + select_name + "]").autocomplete({
+                source:function (request, response) {
+                    $.ajax({
+                        url:"{!$presenter->link('complete')}",
+                        data:{
+                            whichData:select_name,
+                            typedText:request.term
+                        },
+                        success:function (data) {
+                            response($.map(data, function (item) {
+                                return { label:item[0], value:item[1] }
+                            }));
+                        }
+                    });
+                },
+                minLength:1,
+                open:function () {
+                    $(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                },
+                close:function () {
+                    $(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                }
+            });
+        }
+
         var cities = new Acomplete('city');
         var greetings = new Acomplete('pozdrav');
-
+        var greetings2 = new Acomplete2('pozdrav2');
         // End: Autocomplete
+
+        // Begin: Carousel
+        $('#myCarousel').carousel({
+            interval: 3500,
+            pause: "hover"
+        });
+        // End: Carousel
     });
 </script>
 {/block}
@@ -49,7 +82,7 @@
 
 <h1>Jquery test</h1>
 
-<div id="jtest" style="background-color: red;">
+<div id="jtest" style="background-color: #ff0000;">
     <p>Jquery test failed :(</p>
 </div>
 
@@ -145,7 +178,7 @@
         <div class="item span5 offset2">Third div in carousel.</div>
     </div>
     <!-- Carousel nav -->
-    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control left"  href="#myCarousel" data-slide="prev">&lsaquo;</a>
     <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
-
+{/block}
