@@ -20,7 +20,7 @@ $webloaderExtension = new \WebLoader\Nette\Extension();
 $webloaderExtension->install($configurator);
 
 // Create Dependency Injection container from config.neon file
-$configurator->addConfig(__DIR__ . "/config.neon");
+$configurator->addConfig(__DIR__ . "/config/config.neon");
 $container = $configurator->createContainer();
 
 // Setup router

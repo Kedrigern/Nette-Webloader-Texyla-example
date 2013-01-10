@@ -1,0 +1,39 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+#
+common:
+	php:
+		date.timezone: Europe/Prague
+		# session.save_path: "%tempDir%/sessions"
+		# zlib.output_compression: yes
+		
+	nette:
+		application:
+			errorPresenter: Error
+
+		database:
+			dsn: 'mysql:host=localhost;dbname=nwt_test'
+			user: test
+			password: test
+
+		session:
+			expiration: 30 days
+
+	services:
+		texy: MyTexy
+		wlCssFilter: WebLoader\Filter\CssUrlsFilter( %wwwDir%/webtemp )
+		# Database services
+		articleRepository : nwt\ArticleRepository
+		userRepository : nwt\UserRepository
+		sql : nwt\SqlWrapper
+	
+	# larger part of config can be included for another file
+	includes:
+		- webloader.neon
+
+	factories:
+
+production < common:
+
+development < common:
